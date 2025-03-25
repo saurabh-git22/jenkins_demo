@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Source') {
             steps {
-                sh "GIT_CLONE_COMMAND"
+                sh "git clone 
             }
         }
         stage('Build') {
