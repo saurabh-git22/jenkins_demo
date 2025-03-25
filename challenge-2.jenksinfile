@@ -4,18 +4,18 @@ pipeline {
     stages {
         stage('Source') {
             steps {
-                sh "git clone 
+                sh "git clone https://github.com/saurabh-git22/jenkins_demo.git"
             }
         }
         stage('Build') {
             steps {
-                sh "GO_BUILD_COMMAND"
+                sh "go build main.go"
             }
         }
         stage('Package') {
             steps {
-                sh "CREATE_PACKAGE_FOLDER_FOR_BUILD"
-                sh "COPY_BUILT_APPLICATION_IN_PACKAGE_FOLDER"
+                sh "mkdir -p /shared/packages/${BUILD_ID}"
+                sh "cp main /shared/packages/${BUILD_ID}/main"
             }
         }
     }
